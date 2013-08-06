@@ -7,14 +7,14 @@ git "/data/springest/pgbadger" do
 end
 
 execute "run Makefile" do
-	cwd "/data/springest/pgbadger"
-	command "perl Makefile.PL INSTALLDIRS='perl'"
-	action :nothing
-	notifies :run, 'execute[make and install]', :immediately
+  cwd "/data/springest/pgbadger"
+  command "perl Makefile.PL INSTALLDIRS='perl'"
+  action :nothing
+  notifies :run, 'execute[make and install]', :immediately
 end
 
 execute "make and install" do
-	cwd "/data/springest/pgbadger"
-	command "make & make install"
-	action :nothing
+  cwd "/data/springest/pgbadger"
+  command "make & make install"
+  action :nothing
 end
